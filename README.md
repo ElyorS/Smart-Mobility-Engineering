@@ -1,7 +1,7 @@
 # Smart-Mobility-Engineering
 ROS installation bash history shell file
 
-#The below command returns the following output image
+#To start turtlesim, enter the following command in your terminal and the you will see the below window in the image
 
 ros2 run turtlesim turtlesim_node
 
