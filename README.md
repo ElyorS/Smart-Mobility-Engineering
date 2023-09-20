@@ -34,7 +34,15 @@ ros2 run turtlesim turtle_teleop_key --ros-args --remap turtle1/cmd_vel:=turtle2
 #ros2 node list will show you the names of all running nodes
 ros2 node list
 
-reassign the name of our /turtlesim node. In a new terminal, run the following command:
+#reassign the name of our /turtlesim node. In a new terminal, run the following command:
 
 ros2 run turtlesim turtlesim_node --ros-args --remap __node:=my_turtle
+
+<img width="1008" alt="Screenshot 2023-09-20 at 10 38 27 AM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/e77d4a92-47b8-4c5b-81b8-5497f4c2ead9">
+
+#Now that you know the names of your nodes, you can access more information about them with:
+ros2 node info /my_turtle
+
+<img width="731" alt="Screenshot 2023-09-20 at 10 41 34 AM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/959b197b-0c18-42d5-be51-5fbca2891abc">
+
 
