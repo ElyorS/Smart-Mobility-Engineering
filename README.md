@@ -1,4 +1,4 @@
-# Smart-Mobility-Engineering
+<img width="979" alt="Screenshot 2023-09-21 at 11 34 39 AM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/a180a138-490e-4cac-a97b-e2e8c0e77227"># Smart-Mobility-Engineering
 ROS installation bash history shell file
 
 #To start turtlesim, enter the following command in your terminal and the you will see the below window in the image
@@ -44,5 +44,50 @@ ros2 run turtlesim turtlesim_node --ros-args --remap __node:=my_turtle
 ros2 node info /my_turtle
 
 <img width="731" alt="Screenshot 2023-09-20 at 10 41 34 AM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/959b197b-0c18-42d5-be51-5fbca2891abc">
+
+#to run rqt_graph, open a new terminal and enter the command:
+rqt_graph
+
+<img width="990" alt="Screenshot 2023-09-21 at 11 28 32 AM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/3f2ae0d1-5c5b-4a7b-98cb-2daa87e978d1">
+
+#This command will clear the turtlesim window of any lines your turtle has drawn.
+ros2 service call /clear std_srvs/srv/Empty
+
+<img width="979" alt="Screenshot 2023-09-21 at 11 34 39 AM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/4a880a58-d439-453e-8bcd-4e8815d1795a">
+
+#To change /turtlesim’s background color:
+ros2 param set /turtlesim background_r 150
+
+<img width="988" alt="Screenshot 2023-09-21 at 11 47 58 AM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/4791f5bd-c316-4738-983b-9ab8f468e0db">
+
+#To produce log messages for rqt_console to display, let’s have the turtle run into the wall. In a new terminal, enter the ros2 topic pub command (discussed in detail in the topics tutorial) below:
+ros2 topic pub -r 1 /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0,y: 0.0,z: 0.0}}"
+
+<img width="1389" alt="Screenshot 2023-09-21 at 11 52 04 AM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/b44d0697-2e5c-4b4a-be92-1e00f16babf9">
+
+#To run the launch file, which is written in Python, but you can also use XML and YAML to create launch files. You can see a comparison of these different ROS 2 launch formats in Using Python, XML, and YAML for ROS 2 Launch Files.
+ros2 launch turtlesim multisim.launch.py
+
+<img width="984" alt="Screenshot 2023-09-21 at 11 54 32 AM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/a0db0939-a05b-4556-9158-02ed72cba567">
+
+#Now that these nodes are running, you can control them like any other ROS 2 nodes. For example, you can make the turtles drive in opposite directions by opening up two additional terminals and running the following commands:
+
+#In the second terminal:
+ros2 topic pub  /turtlesim1/turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}"
+
+#In the third terminal:
+ros2 topic pub  /turtlesim2/turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: -1.8}}"
+
+<img width="987" alt="Screenshot 2023-09-21 at 11 55 33 AM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/720bce27-135e-40c1-906e-890149e80537">
+
+#To see the data that /turtle1/cmd_vel is publishing, run the command:
+ros2 topic echo /turtle1/cmd_vel
+
+#Nothing will show up at first because no data is being published by the teleop. Return to the terminal where you ran the teleop and select it so it’s active. Use the arrow keys to move the turtle around, and you will see data being published on the terminal running 
+
+<img width="988" alt="Screenshot 2023-09-21 at 12 02 33 PM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/f17e142f-9d0e-4bd2-98ab-0650506587e7">
+
+
+
 
 
