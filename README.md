@@ -1,3 +1,8 @@
+#The below link is the shell file for the commands regarding CLI tools:
+https://github.com/ElyorS/Smart-Mobility-Engineering/blob/7bc19b555c732307071df515ca237a78e47b871a/12204556_cli_tools.sh
+
+
+
 <img width="979" alt="Screenshot 2023-09-21 at 11 34 39 AM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/a180a138-490e-4cac-a97b-e2e8c0e77227"># Smart-Mobility-Engineering
 ROS installation bash history shell file
 
