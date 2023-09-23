@@ -116,6 +116,26 @@ ros2 run turtlesim turtlesim_node
 
 <img width="987" alt="Screenshot 2023-09-24 at 1 55 22 AM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/bbedf004-d17c-435e-8bf0-8b7856920f3d">
 
+#From ros2_ws/src/my_package, open package.xml using your preferred text editor:
+#Input your name and email on the maintainer line if it hasn’t been automatically populated for you. Then, edit the description line to summarize the package:
+<description>Beginner client libraries tutorials practice package</description>
+
+#Then, update the license line. You can read more about open source licenses here. Since this package is only for practice, it’s safe to use any license. We’ll use Apache License 2.0:
+<license>Apache License 2.0</license>
+
+<img width="992" alt="Screenshot 2023-09-24 at 2 59 51 AM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/d6ce8c15-5a22-4212-8eba-1cd2f0c8787f">
+# The file can be downloaded 
+
+#To create a simple publisher and subscruber in C++ and Python languages, the commands, which are mentioned in the shell file have to be used so that the neccesssary files will be downloaded once they are entered to the terminal. After that, As mentioned in the previous tutorial, make sure to fill in the <description>, <maintainer> and <license> tags:<description>Examples of minimal publisher/subscriber using rclpy</description> <maintainer email="you@email.com">Your Name</maintainer> <license>Apache License 2.0</license>, 
+#After the lines above, add the following dependencies corresponding to your node’s import statements:<exec_depend>rclpy</exec_depend <exec_depend>std_msgs</exec_depend>, maintainer='YourName', maintainer_email='you@email.com', description='Examples of minimal publisher/subscriber using rclpy', license='Apache License 2.0', 
+
+#Once everything is done, it is possible to run the program by the below command: 
+ros2 run py_pubsub listener
+
+<img width="992" alt="Screenshot 2023-09-24 at 2 59 51 AM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/a5b091a8-d31e-4ffa-a70d-376858e9d426">
+
+<img width="988" alt="Screenshot 2023-09-24 at 3 37 58 AM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/343925fc-f9c4-46fa-ad56-7d283c84a4b3">
+
 
 
 
