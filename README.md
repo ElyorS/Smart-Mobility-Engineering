@@ -96,6 +96,26 @@ ros2 topic echo /turtle1/cmd_vel
 #The below link is the github shell file for the commands of Client libraries
 https://github.com/ElyorS/Smart-Mobility-Engineering/blob/7a3515c9abab45528d37c9a9fca44868818f11d5/12204556_client_libraries.sh
 
+#When colcon has completed building successfully, the output will be in the install directory. Before you can use any of the installed executables or libraries, you will need to add them to your path and library paths. colcon will have generated bash/bat files in the install directory to help set up the environment. These files will add all of the required elements to your path and library paths as well as provide any bash or shell commands exported by packages.
+
+#With the environment sourced, we can run executables built by colcon. Let’s run a subscriber node from the examples:
+ros2 run examples_rclcpp_minimal_subscriber subscriber_member_function
+
+#In another terminal, let’s run a publisher node (don’t forget to source the setup script):
+ros2 run examples_rclcpp_minimal_publisher publisher_member_function
+
+<img width="770" alt="Screenshot 2023-09-24 at 1 06 34 AM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/2f900f8d-1884-4c02-9712-9d390d641093">
+
+<img width="771" alt="Screenshot 2023-09-24 at 1 06 37 AM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/3aa449ee-812a-49ad-8678-634f09efef74">
+
+#You can modify turtlesim in your overlay by editing the title bar on the turtlesim window. To do this, locate the turtle_frame.cpp file in ~/ros2_ws/src/ros_tutorials/turtlesim/src. Open turtle_frame.cpp with your preferred text editor. On line 52 you will see the function setWindowTitle("TurtleSim");. Change the value "TurtleSim" to "MyTurtleSim", and save the file. Return to the first terminal where you ran colcon build earlier and run it again. Return to the second terminal (where the overlay is sourced) and run turtlesim again:
+ros2 run turtlesim turtlesim_node
+
+#Even though your main ROS 2 environment was sourced in this terminal earlier, the overlay of your ros2_ws environment takes precedence over the contents of the underlay. To see that your underlay is still intact, open a brand new terminal and source only your ROS 2 installation. Run turtlesim again:
+ros2 run turtlesim turtlesim_node
+
+<img width="987" alt="Screenshot 2023-09-24 at 1 55 22 AM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/bbedf004-d17c-435e-8bf0-8b7856920f3d">
+
 
 
 
