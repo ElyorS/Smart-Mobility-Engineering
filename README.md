@@ -93,6 +93,9 @@ ros2 topic echo /turtle1/cmd_vel
 <img width="988" alt="Screenshot 2023-09-21 at 12 02 33 PM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/f17e142f-9d0e-4bd2-98ab-0650506587e7">
 
 
+#The below link is the github shell file for the commands of Client libraries
+https://github.com/ElyorS/Smart-Mobility-Engineering/blob/7a3515c9abab45528d37c9a9fca44868818f11d5/12204556_client_libraries.sh
+
 
 
 
