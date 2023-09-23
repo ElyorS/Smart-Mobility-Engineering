@@ -137,5 +137,18 @@ ros2 run py_pubsub listener
 <img width="988" alt="Screenshot 2023-09-24 at 3 37 58 AM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/343925fc-f9c4-46fa-ad56-7d283c84a4b3">
 
 
+#In order to create a simple service and client programm using c++ and python, at first the user has to follow the command from the shell dile. Afterwards, has to download the needed files by entering the commands to the terminal, after doing couple modifications in the program. in name, mail and license part, can run the code by entering command. 
+
+#During this activity, user will learn how to create two nodes to request and respond to data over a service. Adding their dependencies and executables to the package configuration files so that you could build and run them, allowing to see a service/client system at work.
+
+<img width="986" alt="Screenshot 2023-09-24 at 7 39 24 AM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/b4cf25f2-12d2-4808-bda3-db8f5e8f1cce">
+
+<img width="884" alt="Screenshot 2023-09-24 at 8 09 22 AM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/e9104391-3fb5-4c16-bfa8-2871f306371f">
+
+
+# Learning how to create custom interfaces in their own package and how to utilize those interfaces in other packages.
+
+#interfaces rely on rosidl_default_generators for generating language-specific code, you need to declare a build tool dependency on it. rosidl_default_runtime is a runtime or execution-stage dependency, needed to be able to use the interfaces later. The rosidl_interface_packages is the name of the dependency group that your package, tutorial_interfaces, should be associated with, declared using the <member_of_group> tag.
+
 
 
