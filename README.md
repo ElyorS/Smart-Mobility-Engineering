@@ -127,10 +127,16 @@ ros2 topic echo /turtle1/cmd_vel
 
 <img width="988" alt="Screenshot 2023-09-21 at 12 02 33 PM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/f17e142f-9d0e-4bd2-98ab-0650506587e7">
 
+                              #CLIENT LIBRARIES
+#Client-Library is an applications programming interface ( API ) for use in writing client applications. Client-Library provides generic building blocks for constructing distributed client applications, including non-database applications.
 
+                                       
+                        
 #The below link is the github shell file for the commands of Client libraries
 https://github.com/ElyorS/Smart-Mobility-Engineering/blob/7a3515c9abab45528d37c9a9fca44868818f11d5/12204556_client_libraries.sh
 
+                        #Using colon to build packages
+                        
 #When colcon has completed building successfully, the output will be in the install directory. Before you can use any of the installed executables or libraries, you will need to add them to your path and library paths. colcon will have generated bash/bat files in the install directory to help set up the environment. These files will add all of the required elements to your path and library paths as well as provide any bash or shell commands exported by packages.
 
 #With the environment sourced, we can run executables built by colcon. Let’s run a subscriber node from the examples:
@@ -143,13 +149,22 @@ ros2 run examples_rclcpp_minimal_publisher publisher_member_function
 
 <img width="771" alt="Screenshot 2023-09-24 at 1 06 37 AM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/3aa449ee-812a-49ad-8678-634f09efef74">
 
+                                   #Creating a workspace
+                                   
+#In this tutorial, you sourced your main ROS 2 distro install as your underlay, and created an overlay by cloning and building packages in a new workspace. The overlay gets prepended to the path, and takes precedence over the underlay, as you saw with your modified turtlesim.Using overlays is recommended for working on a small number of packages, so you don’t have to put everything in the same workspace and rebuild a huge workspace on every iteration.
+
 #You can modify turtlesim in your overlay by editing the title bar on the turtlesim window. To do this, locate the turtle_frame.cpp file in ~/ros2_ws/src/ros_tutorials/turtlesim/src. Open turtle_frame.cpp with your preferred text editor. On line 52 you will see the function setWindowTitle("TurtleSim");. Change the value "TurtleSim" to "MyTurtleSim", and save the file. Return to the first terminal where you ran colcon build earlier and run it again. Return to the second terminal (where the overlay is sourced) and run turtlesim again:
 ros2 run turtlesim turtlesim_node
 
+             
 #Even though your main ROS 2 environment was sourced in this terminal earlier, the overlay of your ros2_ws environment takes precedence over the contents of the underlay. To see that your underlay is still intact, open a brand new terminal and source only your ROS 2 installation. Run turtlesim again:
 ros2 run turtlesim turtlesim_node
 
 <img width="987" alt="Screenshot 2023-09-24 at 1 55 22 AM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/bbedf004-d17c-435e-8bf0-8b7856920f3d">
+
+                   #Writing a simple publisher and subscriber using C++ and Pyhton
+
+#You create two nodes to publish and subscribe to data over a topic. Before compiling and running them, you added their dependencies and executables to the package configuration files.
 
 #From ros2_ws/src/my_package, open package.xml using your preferred text editor:
 #Input your name and email on the maintainer line if it hasn’t been automatically populated for you. Then, edit the description line to summarize the package:
@@ -159,7 +174,8 @@ ros2 run turtlesim turtlesim_node
 <license>Apache License 2.0</license>
 
 <img width="992" alt="Screenshot 2023-09-24 at 2 59 51 AM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/d6ce8c15-5a22-4212-8eba-1cd2f0c8787f">
-# The file can be downloaded 
+
+                                     
 
 #To create a simple publisher and subscruber in C++ and Python languages, the commands, which are mentioned in the shell file have to be used so that the neccesssary files will be downloaded once they are entered to the terminal. After that, As mentioned in the previous tutorial, make sure to fill in the <description>, <maintainer> and <license> tags:<description>Examples of minimal publisher/subscriber using rclpy</description> <maintainer email="you@email.com">Your Name</maintainer> <license>Apache License 2.0</license>, 
 #After the lines above, add the following dependencies corresponding to your node’s import statements:<exec_depend>rclpy</exec_depend <exec_depend>std_msgs</exec_depend>, maintainer='YourName', maintainer_email='you@email.com', description='Examples of minimal publisher/subscriber using rclpy', license='Apache License 2.0', 
@@ -171,6 +187,9 @@ ros2 run py_pubsub listener
 
 <img width="988" alt="Screenshot 2023-09-24 at 3 37 58 AM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/343925fc-f9c4-46fa-ad56-7d283c84a4b3">
 
+                #Wriiting a simple service and client program using C++ and Python
+
+#You create two nodes to request and respond to data over a service. You added their dependencies and executables to the package configuration files so that you could build and run them, and see a service/client system at work.
 
 #In order to create a simple service and client programm using c++ and python, at first the user has to follow the command from the shell dile. Afterwards, has to download the needed files by entering the commands to the terminal, after doing couple modifications in the program. in name, mail and license part, can run the code by entering command. 
 
