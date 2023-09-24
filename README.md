@@ -1,8 +1,14 @@
 #The below link is the shell file for the commands regarding CLI tools:
 https://github.com/ElyorS/Smart-Mobility-Engineering/blob/7bc19b555c732307071df515ca237a78e47b871a/12204556_cli_tools.sh
 
+                               #CLI TOOLS
 
+#ROS 2 relies on the notion of combining workspaces using the shell environment. “Workspace” is a ROS term for the location on your system where you’re developing with ROS 2. The core ROS 2 workspace is called the underlay. Subsequent local workspaces are called overlays. When developing with ROS 2, you will typically have several workspaces active concurrently.
+Combining workspaces makes developing against different versions of ROS 2, or against different sets of packages, easier. It also allows the installation of several ROS 2 distributions (or “distros”, e.g. Dashing and Eloquent) on the same computer and switching between them.
+#Using turtlesim and rqt is a great way to learn the core concepts of ROS 2. This is accomplished by sourcing setup files every time you open a new shell, or by adding the source command to your shell startup script once. Without sourcing the setup files, you won’t be able to access ROS 2 commands, or find or use ROS 2 packages. In other words, you won’t be able to use ROS 2.
 
+                         #USING TURTLESIM, ROS2, AND RQT. 
+                         
 <img width="979" alt="Screenshot 2023-09-21 at 11 34 39 AM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/a180a138-490e-4cac-a97b-e2e8c0e77227"># Smart-Mobility-Engineering
 ROS installation bash history shell file
 
@@ -36,8 +42,12 @@ ros2 run turtlesim turtle_teleop_key --ros-args --remap turtle1/cmd_vel:=turtle2
 
 <img width="987" alt="Screenshot 2023-09-20 at 10 16 18 AM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/e73c55c5-7cb5-462e-8de2-f95193dc0912">
 
+                                #Understanding nodes
+
+#A node is a fundamental ROS 2 element that serves a single, modular purpose in a robotics system.In this tutorial, you utilized nodes created in the turtlesim package by running the executables turtlesim_node and turtle_teleop_key.You learned how to use ros2 node list to discover active node names and ros2 node info to introspect a single node. These tools are vital to understanding the flow of data in a complex, real-world robot system.
 #ros2 node list will show you the names of all running nodes
 ros2 node list
+
 
 #reassign the name of our /turtlesim node. In a new terminal, run the following command:
 
@@ -50,20 +60,37 @@ ros2 node info /my_turtle
 
 <img width="731" alt="Screenshot 2023-09-20 at 10 41 34 AM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/959b197b-0c18-42d5-be51-5fbca2891abc">
 
+                                       #Understanding topics
+
+#Nodes publish information over topics, which allows any number of other nodes to subscribe to and access that information. In this tutorial you examined the connections between several nodes over topics using rqt_graph and command line tools. You should now have a good idea of how data moves around a ROS 2 system.
+
+
 #to run rqt_graph, open a new terminal and enter the command:
 rqt_graph
 
 <img width="990" alt="Screenshot 2023-09-21 at 11 28 32 AM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/3f2ae0d1-5c5b-4a7b-98cb-2daa87e978d1">
 
-#This command will clear the turtlesim window of any lines your turtle has drawn.
+                                      #Understandig services
+                                    
+#Nodes can communicate using services in ROS 2. Unlike a topic - a one way communication pattern where a node publishes information that can be consumed by one or more subscribers - a service is a request/response pattern where a client makes a request to a node providing the service and the service processes the request and generates a response.#This command will clear the turtlesim window of any lines your turtle has drawn.You generally don’t want to use a service for continuous calls; topics or even actions would be better suited.
+
 ros2 service call /clear std_srvs/srv/Empty
 
 <img width="979" alt="Screenshot 2023-09-21 at 11 34 39 AM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/4a880a58-d439-453e-8bcd-4e8815d1795a">
+
+                                  #Understanding parameters
+                                
+#Nodes have parameters to define their default configuration values. You can get and set parameter values from the command line. You can also save the parameter settings to a file to reload them in a future session.
 
 #To change /turtlesim’s background color:
 ros2 param set /turtlesim background_r 150
 
 <img width="988" alt="Screenshot 2023-09-21 at 11 47 58 AM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/4791f5bd-c316-4738-983b-9ab8f468e0db">
+
+
+                          #Using rqt_console to view logs    
+
+#rqt_console can be very helpful if you need to closely examine the log messages from your system. You might want to examine log messages for any number of reasons, usually to find out where something went wrong and the series of events leading up to that.
 
 #To produce log messages for rqt_console to display, let’s have the turtle run into the wall. In a new terminal, enter the ros2 topic pub command (discussed in detail in the topics tutorial) below:
 ros2 topic pub -r 1 /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0,y: 0.0,z: 0.0}}"
@@ -75,6 +102,10 @@ ros2 launch turtlesim multisim.launch.py
 
 <img width="984" alt="Screenshot 2023-09-21 at 11 54 32 AM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/a0db0939-a05b-4556-9158-02ed72cba567">
 
+                                   #Launching nodes
+
+#The significance of what you’ve done so far is that you’ve run two turtlesim nodes with one command. Once you learn to write your own launch files, you’ll be able to run multiple nodes - and set up their configuration - in a similar way, with the ros2 launch command.
+
 #Now that these nodes are running, you can control them like any other ROS 2 nodes. For example, you can make the turtles drive in opposite directions by opening up two additional terminals and running the following commands:
 
 #In the second terminal:
@@ -84,6 +115,10 @@ ros2 topic pub  /turtlesim1/turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x
 ros2 topic pub  /turtlesim2/turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: -1.8}}"
 
 <img width="987" alt="Screenshot 2023-09-21 at 11 55 33 AM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/720bce27-135e-40c1-906e-890149e80537">
+
+                              #Recording and playing back data
+                              
+#You can record data passed on topics in your ROS 2 system using the ros2 bag command. Whether you’re sharing your work with others or introspecting your own experiments, it’s a great tool to know about.
 
 #To see the data that /turtle1/cmd_vel is publishing, run the command:
 ros2 topic echo /turtle1/cmd_vel
