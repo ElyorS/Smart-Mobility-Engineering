@@ -204,5 +204,62 @@ ros2 run py_pubsub listener
 
 #interfaces rely on rosidl_default_generators for generating language-specific code, you need to declare a build tool dependency on it. rosidl_default_runtime is a runtime or execution-stage dependency, needed to be able to use the interfaces later. The rosidl_interface_packages is the name of the dependency group that your package, tutorial_interfaces, should be associated with, declared using the <member_of_group> tag.
 
+                       #Creating custom ms and srv files
 
 
+#In this tutorial, you will learn how to create custom interfaces in their own package and how to utilize those interfaces in other packages.
+
+
+#For this tutorial you will be creating custom .msg and .srv files in their own package, and then utilizing them in a separate package. Both packages should be in the same workspace.
+
+
+                       #Implemeting custom interfaces
+
+#In this tutorial, you will try out different field types for defining interfaces, then built an interface in the same package where it’s being used.
+
+#Recall that interfaces can currently only be defined in CMake packages. It is possible, however, to have Python libraries and nodes in CMake packages (using ament_cmake_python), so you could define interfaces and Python nodes together in one package. We’ll use a CMake package and C++ nodes here for the sake of simplicity.
+
+#This tutorial will focus on the msg interface type, but the steps here are applicable to all interface types.
+
+<img width="1022" alt="Screenshot 2023-09-24 at 7 01 29 PM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/43163d54-1f33-48b5-8996-21bedbf06ab9">
+
+                       #Using paramteres in a class using C++ and Python
+
+#You will create a node with a custom parameter that can be set either from a launch file or the command line. You added the dependencies, executables, and a launch file to the package configuration files so that you could build and run them, and see the parameter in action.
+
+
+#When making your own nodes you will sometimes need to add parameters that can be set from the launch file.
+
+#This tutorial will show you how to create those parameters in a Python class, and how to set them in a launch file.
+
+<img width="1434" alt="Screenshot 2023-09-24 at 7 04 47 PM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/448bb385-e835-49fe-8e6b-de35e0e6669f">
+
+<img width="1447" alt="Screenshot 2023-09-24 at 7 15 08 PM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/7f2622ee-290e-4555-aef7-af1470ea06be">
+
+
+                          #Using a ROS2doctor to identify the issues
+
+#ros2doctor will inform you of problems in your ROS 2 setup and running systems. You can get a deeper look at information behind those warnings by using the --report argument. Keep in mind, ros2doctor is not a debug tool; it won’t help with errors in your code or on the implementation side of your system.
+
+#When your ROS 2 setup is not running as expected, you can check its settings with the ros2doctor tool. ros2doctor checks all aspects of ROS 2, including platform, version, network, environment, running systems and more, and warns you about possible errors and reasons for issues.
+
+<img width="1045" alt="Screenshot 2023-09-24 at 7 28 11 PM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/74ee5bf1-c352-4b63-ace9-98fcc200c25d">
+
+
+                       #Creating and Uisng plugins C++
+
+#pluginlib is a C++ library for loading and unloading plugins from within a ROS package. Plugins are dynamically loadable classes that are loaded from a runtime library (i.e. shared object, dynamically linked library). With pluginlib, you do not have to explicitly link your application against the library containing the classes – instead pluginlib can open a library containing exported classes at any point without the application having any prior awareness of the library or the header file containing the class definition. Plugins are useful for extending/modifying application behavior without needing the application source code.
+
+
+<img width="1444" alt="Screenshot 2023-09-24 at 8 08 45 PM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/c911a732-44f6-4df4-8884-a854954545cd">
+
+#When the prgoram is runned with the cmmand:
+
+#It should print:
+#Triangle area: 43.30
+#Square area: 100.00
+
+
+#There are a number of ways to instantiate an instance of the class. In this example, we’re using shared pointers. We just need to call createSharedInstance with the fully-qualified type of the plugin class, in this case, polygon_plugins::Square.
+
+#Important note: the polygon_base package in which this node is defined does NOT depend on the polygon_plugins class. The plugins will be loaded dynamically without any dependency needing to be declared. Furthermore, we’re instantiating the classes with hardcoded plugin names, but you can also do so dynamically with parameters, etc.
