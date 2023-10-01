@@ -202,3 +202,134 @@ In previous tutorials, we recreated the turtle demo by writing a tf2 broadcaster
 You should notice that lookup_transform() will actually block until the transform between the two turtles becomes available (this will usually take a few milli-seconds). Once the timeout has been reached (one second in this case), an exception will be raised only if the transform is still not available.
 
 In this tutorial you learned more about the lookup_transform function and its timeout features. You also learned how to catch and handle additional exceptions that can be thrown by tf2.
+
+                     Traveling in time (Python) and (C++)
+
+In the previous tutorial, we discussed the basics of tf2 and time. This tutorial will take us one step further and expose a powerful tf2 trick: the time travel. In short, one of the key features of tf2 library is that it is able to transform data in time as well as in space.
+
+This tf2 time travel feature can be useful for various tasks, like monitoring the pose of the robot for a long period of time or building a follower robot that will follow the “steps” of the leader. We will use that time travel feature to look up transforms back in time and program turtle2 to follow 5 seconds behind carrot1.
+
+In this tutorial, you have seen one of the advanced features of tf2. You learned that tf2 can transform data in time and learned how to do that with turtlesim example. tf2 allowed you to go back in time and make frame transformations between old and current poses of turtles by using the advanced lookup_transform_full() API.
+
+                    Debugging
+
+This tutorial walks you through the steps to debug a typical tf2 problem. It will also use many of the tf2 debugging tools, such as tf2_echo, tf2_monitor, and view_frames. This tutorial assumes you have completed the learning tf2 tutorials.
+
+In this tutorial you learned how to use a systematic approach for debugging tf2 related problems. You also learned how to use tf2 debugging tools, such as tf2_echo, tf2_monitor, and view_frames to help you debug those tf2 problems.
+
+                      Quaternion fundamentals
+                      
+A quaternion is a 4-tuple representation of orientation, which is more concise than a rotation matrix. Quaternions are very efficient for analyzing situations where rotations in three dimensions are involved. Quaternions are used widely in robotics, quantum mechanics, computer vision, and 3D animation.         
+
+In this tutorial, you will learn how quaternions and conversion methods work in ROS 2.
+
+However, this is not a hard requirement and you can stick to any other geometric transfromation library that suit you best.
+
+In this tutorial, you learned about the fundamental concepts of a quaternion and its related mathematical operations, like inversion and rotation. You also learned about its usage examples in ROS 2 and conversion methods between two separate Quaternion classes.
+
+                      Using stamped datatypes with tf2_ros::MessageFilter
+
+This tutorial explains how to use sensor data with tf2. Some real-world examples of sensor data are:
+
+cameras, both mono and stereo
+laser scans
+Suppose that a new turtle named turtle3 is created and it doesn’t have good odometry, but there is an overhead camera tracking its position and publishing it as a PointStamped message in relation to the world frame.
+
+turtle1 wants to know where turtle3 is compared to itself.
+
+To do this turtle1 must listen to the topic where turtle3’s pose is being published, wait until transforms into the desired frame are ready, and then do its operations. To make this easier the tf2_ros::MessageFilter is very useful. The tf2_ros::MessageFilter will take a subscription to any ROS 2 message with a header and cache it until it is possible to transform it into the target frame.
+
+In this tutorial you learned how to use sensor data/messages in tf2. Specifically speaking, you learned how to publish PointStamped messages on a topic, and how to listen to the topic and transform the frame of PointStamped messages with tf2_ros::MessageFilter.
+
+                               ---------------------TESTING------------------------
+
+            Running Tests in ROS 2 from the Command Line Build and run your tests
+            
+Sourcing the workspace before testing should not be necessary. colcon test makes sure that the tests run with the right environment, have access to their dependencies, etc.
+
+If a C++ test is failing, gdb can be used directly on the test executable in the build directory. Ensure to build the code in debug mode. Since the previous build type may be cached by CMake, clean the cache and rebuild.
+
+
+                  Writing Basic Tests with C++ with GTest
+
+Starting point: we’ll assume you have a basic ament_cmake package set up already and you want to add some tests to it.
+
+The testing code is wrapped in the if/endif block to avoid building tests where possible. ament_add_gtest functions much like add_executable so you’ll need to call target_include_directories, ament_target_dependencies and target_link_libraries as you normally would.
+
+                  Writing Basic Tests with Python
+
+Beyond the standard colcon testing commands you can also specify arguments to the pytest framework from the command line with the --pytest-args flag. For example, you can specify the name of the function to run with
+
+To see the pytest output while running the tests, use these flags:
+colcon test --event-handlers console_cohesion+
+
+                    ------------------URDF--------------------
+
+                    Building a visual robot model from scratch
+
+In this tutorial, we’re going to build a visual model of a robot that vaguely looks like R2D2. In later tutorials, you’ll learn how to articulate the model, add in some physical properties, and generate neater code with xacro, but for now, we’re going to focus on getting the visual geometry correct.
+
+Before continuing, make sure you have the joint_state_publisher package installed. If you installed urdf_tutorial binaries, this should already be the case. If not, please update your installation to include that package (use rosdep to check).
+
+All of the robot models mentioned in this tutorial (and the source files) can be found in the urdf_tutorial package.
+
+The meshes can be imported in a number of different formats. STL is fairly common, but the engine also supports DAE, which can have its own color data, meaning you don’t have to specify the color/material. Often these are in separate files. These meshes reference the .tif files also in the meshes folder.
+Meshes can also be sized using relative scaling parameters or a bounding box size.
+We could have also referred to meshes in a completely different package.
+
+<img width="678" alt="Screenshot 2023-10-01 at 5 07 09 PM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/75a0a7fc-93cd-443b-8eb5-0daff55c3ae7">
+
+<img width="686" alt="Screenshot 2023-10-01 at 5 07 43 PM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/9cbbecb4-007b-40d2-b0ff-81be83c65e23">
+
+                    Building a movable robot model
+
+In this tutorial, we’re going to revise the R2D2 model we made in the previous tutorial so that it has movable joints. In the previous model, all of the joints were fixed. Now we’ll explore three other important types of joints: continuous, revolute and prismatic.
+
+Make sure you have installed all prerequisites before continuing. See the previous tutorial for information on what is required.
+
+Again, all of the robot models mentioned in this tutorial can be found in the urdf_tutorial package.
+
+As you move the sliders around in the GUI, the model moves in Rviz. How is this done? First the GUI parses the URDF and finds all the non-fixed joints and their limits. Then, it uses the values of the sliders to publish sensor_msgs/msg/JointState messages. Those are then used by robot_state_publisher to calculate all of transforms between the different parts. The resulting transform tree is then used to display all of the shapes in Rviz.
+
+<img width="597" alt="Screenshot 2023-10-01 at 5 10 28 PM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/01b6e585-34b2-4c36-93cd-4e097520d09e">
+
+                 Adding physical and collision properties
+
+So far, we’ve only specified our links with a single sub-element, visual, which defines (not surprisingly) what the robot looks like. However, in order to get collision detection to work or to simulate the robot, we need to define a collision element as well. Here is the new urdf with collision and physical properties.
+
+The collision element is a direct subelement of the link object, at the same level as the visual tag.
+The collision element defines its shape the same way the visual element does, with a geometry tag. The format for the geometry tag is exactly the same here as with the visual.
+You can also specify an origin in the same way as a subelement of the collision tag (as with the visual).
+In many cases, you’ll want the collision geometry and origin to be exactly the same as the visual geometry and origin. However, there are two main cases where you wouldn’t:
+
+Quicker Processing. Doing collision detection for two meshes is a lot more computational complex than for two simple geometries. Hence, you may want to replace the meshes with simpler geometries in the collision element.
+Safe Zones. You may want to restrict movement close to sensitive equipment. For instance, if we didn’t want anything to collide with R2D2’s head, we might define the collision geometry to be a cylinder encasing his head to prevent anything from getting too close to his head.
+
+This information can be provided to you by modeling programs such as MeshLab. The inertia of geometric primitives (cylinder, box, sphere) can be computed using Wikipedia’s list of moment of inertia tensors (and is used in the above example).
+The inertia tensor depends on both the mass and the distribution of mass of the object. A good first approximation is to assume equal distribution of mass in the volume of the object and compute the inertia tensor based on the object’s shape, as outlined above.
+If unsure what to put, a matrix with ixx/iyy/izz=1e-3 or smaller is often a reasonable default for a mid-sized link (it corresponds to a box of 0.1 m side length with a mass of 0.6 kg). The identity matrix is a particularly bad choice, since it is often much too high (it corresponds to a box of 0.1 m side length with a mass of 600 kg!).
+You can also specify an origin tag to specify the center of gravity and the inertial reference frame (relative to the link’s reference frame).
+When using realtime controllers, inertia elements of zero (or almost zero) can cause the robot model to collapse without warning, and all links will appear with their origins coinciding with the world origin.
+
+                    Using Xacro to clean up your code
+
+By now, if you’re following all these steps at home with your own robot design, you might be sick of doing all sorts of math to get very simple robot descriptions to parse correctly. Fortunately, you can use the xacro package to make your life simpler. It does three things that are very helpful.
+
+The xacro language is rather flexible in what it allows you to do. Here are a few useful ways that xacro is used in the R2D2 model, in addition to the default inertial macro shown above.
+
+To see the model generated by a xacro file, run the same command as with previous tutorials:
+
+Common Trick 1: Use a name prefix to get two similarly named objects.
+Common Trick 2: Use math to calculate joint origins. In the case that you change the size of your robot, changing a property with some math to calculate the joint offset will save a lot of trouble.
+Common Trick 3: Using a reflect parameter, and setting it to 1 or -1. See how we use the reflect parameter to put the legs on either side of the body in the base_to_${prefix}_leg origin.
+
+                  Using URDF with robot_state_publisher
+
+This tutorial will show you how to model a walking robot, publish the state as a tf2 message and view the simulation in Rviz. First, we create the URDF model describing the robot assembly. Next we write a node which simulates the motion and publishes the JointState and transforms. We then use robot_state_publisher to publish the entire robot state to /tf2.
+
+You created a JointState publisher node and coupled it with robot_state_publisher to simulate a walking robot. The code used in these examples is originally from here.
+
+<img width="508" alt="Screenshot 2023-10-01 at 5 14 57 PM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/ae2284d3-7e06-4d28-a54c-71e470099e20">
+
+
+
