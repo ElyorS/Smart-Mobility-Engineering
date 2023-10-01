@@ -1,0 +1,8 @@
+Saidmurodov Elyor (12204556)
+
+This file explains all the steps for installing the ROS2 Intermediate tutorial
+
+                                   Managing Dependencies with rosdep
+
+
+rosdep is a dependency management utility that can work with packages and external libraries. It is a command-line utility for identifying and installing dependencies to build or install a package. rosdep is not a package manager in its own right; it is a meta-package manager that uses its own knowledge of the system and the dependencies to find the appropriate package to install on a particular platform. The actual installation is done using the system package manager (e.g. apt on Debian/Ubuntu, dnf on Fedora/RHEL, etc).
