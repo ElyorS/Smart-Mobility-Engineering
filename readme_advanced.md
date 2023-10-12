@@ -19,6 +19,12 @@ For more details please see the Topic Statistics Concepts Page.
 
 You created a subscriber node with topic statistics enabled, which published statistics data from the C++’s publisher node. You were able to compile and run this node. While running, you were able to observe the statistics data.
 
+<img width="1389" alt="Screenshot 2023-10-12 at 4 46 43 PM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/0baf6dff-dca7-4096-8947-f0a970aa368f">
+
+<img width="1331" alt="Screenshot 2023-10-12 at 4 47 40 PM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/600c383c-23c2-4184-8dc4-14cd49a93028">
+
+
+
                             Using Fast DDS Discovery Server as discovery protocol [community-contributed]
 
 Starting from ROS 2 Eloquent Elusor, the Fast DDS Discovery Server protocol is a feature that offers a centralized dynamic discovery mechanism, as opposed to the distributed mechanism used in DDS by default. This tutorial explains how to run some ROS 2 examples using the Fast DDS Discovery Server feature as discovery communication.
@@ -49,6 +55,11 @@ ROS 2 RMW only allows for the configuration of certain middleware QoS (see ROS 2
 This tutorial assumes that you know how to create a package. It also assumes you know how to write a simple publisher and subscriber and a simple service and client. Although the examples are implemented in C++, the same concepts apply to Python packages.
 
 Although we have created a node with two publishers with different configuration, it is not easy to check that they are behaving differently. Now that the basics of XML profiles have been covered, let us use them to configure something which has some visual effect on the nodes. Specifically, a maximum number of matching subscribers on one of the publishers and a partition definition on the other will be set. Note that these are only very simple examples among all the configuration attributes that can be tuned on rmw_fastrtps through XML files. Please refer to *Fast DDS* documentation to see the whole list of attributes that can be configured through XML files.
+<img width="1434" alt="Screenshot 2023-10-12 at 5 00 23 PM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/83b39cba-64fd-4562-95bc-1e64194cb3ab">
+
+<img width="884" alt="Screenshot 2023-10-12 at 5 10 14 PM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/edff9f4b-72fd-42e6-9e91-ec4f2432d7fd">
+
+
                                         
                           Recording a bag from a node (C++)
 
@@ -57,6 +68,14 @@ Rosbag2 doesn’t just provide the ros2 bag command line tool. It also provides 
 Any data can be recorded into a bag, not just data received over a topic. A common use case for writing to a bag from your own node is to generate and store synthetic data. In this section you will learn how to write a node that generates some data and stores it in a bag. We will demonstrate two approaches for doing this. The first uses a node with a timer; this is the approach that you would use if your data generation is external to the node, such as reading data directly from hardware (e.g. a camera). The second approach does not use a node; this is the approach you can use when you do not need to use any functionality from the ROS infrastructure.
 
 You created a node that records data it receives on a topic into a bag. You tested recording a bag using the node, and verified the data was recorded by playing back the bag. You then went on to create a node and an executable to generate synthetic data and store it in a bag.
+
+<img width="1179" alt="Screenshot 2023-10-12 at 5 15 15 PM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/a498c6f6-79c2-4acf-aed9-d7c8307d946c">
+
+<img width="1014" alt="Screenshot 2023-10-12 at 5 18 34 PM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/546978d6-61a5-4464-978e-68bbc074b39e">
+
+<img width="1420" alt="Screenshot 2023-10-12 at 5 20 33 PM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/6166b9f1-8785-48bd-909d-60d1b74f1a71">
+
+
 
                       Recording a bag from a node (Python)
 
@@ -68,6 +87,11 @@ If you’ve installed from Debian packages on Linux, it may be installed by defa
 
 You created a node that records data it receives on a topic into a bag. You tested recording a bag using the node, and verified the data was recorded by playing back the bag. This approach can be used to record a bag with additional data than it received over a topic, for example with results obtained from processing the received data. You then went on to create a node and an executable to generate synthetic data and store it in a bag. The latter approaches are useful especially for generating synthetic data that can be used, for example, as training sets.
 
+<img width="1179" alt="Screenshot 2023-10-12 at 5 15 15 PM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/eb123b5d-e1b6-41fa-bdce-f0adda0c83ad">
+<img width="1420" alt="Screenshot 2023-10-12 at 5 20 33 PM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/28bfd62f-e2d8-4141-821f-2445bfbcf63b">
+
+
+
                      Reading from a bag file (C++)
 
 rosbag2 doesn’t just provide the ros2 bag command line tool. It also provides a C++ API for reading from and writing to a bag from your own source code. This allows you to read the contents from a bag without having to play the bag, which can sometimes be useful.
@@ -78,6 +102,10 @@ If you’ve installed from Debian packages on Linux, it may be installed by defa
 
 You created a C++ executable that reads data from a bag. You then compiled and ran the executable which printed some information from the bag to the console.
 
+<img width="1162" alt="Screenshot 2023-10-12 at 5 30 57 PM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/10c9dae1-3b44-4090-9658-5d8fddb6548e">
+
+<img width="885" alt="Screenshot 2023-10-12 at 5 25 29 PM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/a5286505-09ce-458f-92d9-de1d7a23011e">
+
                    Installation (Ubuntu)
 
 The webots_ros2 package provides an interface between ROS 2 and Webots. It includes several sub-packages, including webots_ros2_driver, which allows you to start Webots and communicate with it. This interface is used in most of the following tutorials, so it is required to install it beforehand. Other sub-packages are mainly examples that show multiple possible implementations using the interface. In this tutorial, you are going to install the package and learn how to run one of these examples.
@@ -87,6 +115,10 @@ It is recommended to understand basic ROS principles covered in the beginner Tut
 The Webots software should be installed in order to use the webots_ros2 interface. You can follow the installation procedure or build it from sources.
 
 Alternatively, you can also let webots_ros2 download and install Webots automatically. This option appears when you launch an example of the package and no Webots installation is found.
+
+<img width="736" alt="Screenshot 2023-10-12 at 5 44 24 PM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/4b7ffaf9-078c-4f31-88e0-1aa50c639be9">
+
+<img width="727" alt="Screenshot 2023-10-12 at 5 46 20 PM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/713040eb-a367-475d-907a-3f425e4cb808">
 
                   Installation (Windows)
 
