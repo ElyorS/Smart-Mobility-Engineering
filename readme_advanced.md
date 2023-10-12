@@ -182,11 +182,15 @@ Gazebo install instructions
 In this demo you are going to simulate a simple diff drive robot in Gazebo. You are going to use one of the worlds defined in the Gazebo examples called visualize_lidar.sdf.
 
 In this tutorial, you launched a robot simulation with Gazebo, launched bridges with actuators and sensors, visualized data from a sensor, and moved a diff drive robot.
+<img width="668" alt="Screenshot 2023-10-12 at 6 09 31 PM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/5d4e43cb-1c8b-40e9-ac8f-29c62ee9fcc4">
 
               Setting up security
 
 The sros2 package provides the tools and instructions to use ROS 2 on top of DDS-Security. The security features have been tested across platforms (Linux, macOS, and Windows) as well as across different languages (C++ and Python). The SROS2 has been designed to work with any secure middleware, although not all middleware is open source and support varies depending on the ROS distribution in use. Please reach out to the ROS 2 Security Working Group if you encounter any support issues.
 
+<img width="727" alt="Screenshot 2023-10-12 at 5 59 00 PM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/5a3d5814-aa85-413d-ad12-fbe8e0d0d677">
+
+<img width="730" alt="Screenshot 2023-10-12 at 6 00 20 PM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/7aa70e65-e3be-42ad-bba9-cc2a86f09cd6">
 
          Understanding the security keystore
 
@@ -207,6 +211,10 @@ ROS 2 communications security is all about protecting communications between nod
 The destination address is 239.255.0.1, which is a multicast IP address; ROS 2 uses multicast traffic for discovery by default.
 UDP 7400 is the destination port, as per the DDS-RTPS specification.
 The packet contains the “RTPS” tag, also as defined to the DDS-RTPS specification.
+<img width="732" alt="Screenshot 2023-10-12 at 5 55 12 PM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/110b6cb6-9deb-4d83-ac97-1dbcfc922c8b">
+
+<img width="1418" alt="Screenshot 2023-10-12 at 5 56 43 PM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/81b726c6-5114-4bcb-b821-59e63ae94543">
+
 
                      Setting access controls
 
@@ -234,3 +242,11 @@ Setting access controls
 
 keystore-creator: That, similarly to previous tutorials, it internally initializes a new keystore tree directory. This will create enclaves/ public/ and private/, which are explained in more detail in ROS 2 Security enclaves. The keystore directory is configured to be a shared volume across containers.
 listener and talker: Act as the remote device actors in this tutorial. Required Security environment variables are sourced as well as the necessary keystore files from the shared volume.
+<img width="729" alt="Screenshot 2023-10-12 at 5 50 40 PM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/cfeaa16f-f34d-4412-ab70-b45d73502aeb">
+<img width="733" alt="Screenshot 2023-10-12 at 5 51 46 PM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/fd3bffca-d93a-4591-9012-489303de0131">
+
+<img width="725" alt="Screenshot 2023-10-12 at 5 52 44 PM" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/105dd5ec-f3c0-4972-aa52-01cbd6c98259">
+
+
+
+
