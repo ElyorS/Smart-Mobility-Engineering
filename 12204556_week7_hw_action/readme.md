@@ -89,11 +89,23 @@ Both the server and client use ROS 2 logging functions like RCLCPP_INFO, RCLCPP_
                                         FINAL OUTPUT:
 Server Output:
 [obstacle_avoidance_server] Server has started.
+
 [obstacle_avoidance_server] Waiting for a goal...
-[obstacle_avoidance_server] Received goal: Avoid obstacles at 20 cm distance. [obstacle_avoidance_server] Executing obstacle avoidance... [obstacle_avoidance_server] Sending feedback: Obstacle detected at 10 cm. [obstacle_avoidance_server] Goal succeeded. Obstacle avoided.
+
+[obstacle_avoidance_server] Received goal: Avoid obstacles at 20 cm distance. 
+
+[obstacle_avoidance_server] Executing obstacle avoidance...
+
+[obstacle_avoidance_server] Sending feedback: Obstacle detected at 10 cm. [obstacle_avoidance_server] Goal succeeded. Obstacle avoided.
 Client Output:
 [obstacle_avoidance_client] Sending obstacle avoidance request: Maintain 30 cm distance.
-[obstacle_avoidance_client] Goal accepted by server, waiting for result... [obstacle_avoidance_client] Received feedback: Obstacle detected at 25 cm. [obstacle_avoidance_client] Action completed successfully: Obstacle avoided.
+
+[obstacle_avoidance_client] Goal accepted by server, waiting for result... 
+
+[obstacle_avoidance_client] Received feedback: Obstacle detected at 25 cm.
+
+[obstacle_avoidance_client] Action completed successfully: Obstacle avoided.
+
 The output will vary depending on the specific logic and code implemented in the server and client. In practice, the server and client may also log additional information, such as diagnostics, timestamps, and details about obstacle detection. The log messages help in debugging and monitoring the action's behavior in real-time.
 
                                          CONCLUSION
