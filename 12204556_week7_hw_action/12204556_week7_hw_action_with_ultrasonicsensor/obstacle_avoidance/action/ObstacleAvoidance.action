@@ -1,0 +1,9 @@
+# Request -  It sends the distance to the obstacle.
+int32 distance
+
+# Result - It receives a boolean indicating whether an obstacle is detected.
+bool obstacle_detected
+---
+# Feedback -  It provides feedback as a boolean indicating whether the robot is moving.
+bool moving
+

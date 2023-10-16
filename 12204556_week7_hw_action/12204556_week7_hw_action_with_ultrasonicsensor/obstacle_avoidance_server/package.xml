@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<?xml-model
+  href="http://download.ros.org/schema/package_format2.xsd"
+  schematypens="http://www.w3.org/2001/XMLSchema">
+<package format="2">
+  <name>obstacle_avoidance_server</name>
+  <version>0.0.0</version>
+  <description>The obstacle avoidance server package</description>
+  <maintainer email="elyor9760@gmail.com">Your Name</maintainer>
+  <license>Apache License 2.0</license>
+
+  <build_depend>ament_cmake</build_depend>
+  <build_depend>rclcpp</build_depend>
+  <build_depend>rclcpp_action</build_depend>
+  <build_depend>obstacle_avoidance_msgs</build_depend>
+
+  <exec_depend>ament_cmake</exec_depend>
+  <exec_depend>rclcpp</exec_depend>
+  <exec_depend>rclcpp_action</exec_depend>
+  <exec_depend>obstacle_avoidance_msgs</exec_depend>
+
+  <export>
+  </export>
+</package>
+

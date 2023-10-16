@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+  <name>obstacle_avoidance</name>
+  <version>0.0.0</version>
+  <description>ROS 2 package for obstacle avoidance action definition.</description>
+  <maintainer email="elyor9760@gmail.com">Your Name</maintainer>
+  <license>MIT License</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <build_depend>action_msgs</build_depend>
+  <exec_depend>action_msgs</exec_depend>
+  <exec_depend>ament_cmake</exec_depend>
+  <exec_depend>ament_index_python</exec_depend>
+  <exec_depend>ament_cmake_export_dependencies</exec_depend>
+</package>
+
