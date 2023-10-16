@@ -88,6 +88,7 @@ Both the server and client use ROS 2 logging functions like RCLCPP_INFO, RCLCPP_
   
                                         FINAL OUTPUT:
 Server Output:
+
 [obstacle_avoidance_server] Server has started.
 
 [obstacle_avoidance_server] Waiting for a goal...
@@ -96,8 +97,12 @@ Server Output:
 
 [obstacle_avoidance_server] Executing obstacle avoidance...
 
-[obstacle_avoidance_server] Sending feedback: Obstacle detected at 10 cm. [obstacle_avoidance_server] Goal succeeded. Obstacle avoided.
+[obstacle_avoidance_server] Sending feedback: Obstacle detected at 10 cm. 
+
+[obstacle_avoidance_server] Goal succeeded. Obstacle avoided.
+
 Client Output:
+
 [obstacle_avoidance_client] Sending obstacle avoidance request: Maintain 30 cm distance.
 
 [obstacle_avoidance_client] Goal accepted by server, waiting for result... 
