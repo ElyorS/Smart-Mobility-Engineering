@@ -1,7 +1,6 @@
-        Name: Elyor Student      ID: 12204556         Week 7 homework 
-             GitHub link: Click to this text for the Github link1
-        Creating an action using ROS2 (Obstacle avoidance Action)
-                       PROJECT REPORT
+        Name: Elyor Student      ID: 12204556         Week 7 homework         
+            Creating an action using ROS2 (Obstacle avoidance Action)
+                                  PROJECT REPORT
                                         Introduction
 The aim of this project is to implement a ROS 2-based obstacle avoidance action server and client for a simulated turtle robot using ultrasonic sensors. The project is organized into two main directories: one for the action and the other for the server and client implementations.
                                    
