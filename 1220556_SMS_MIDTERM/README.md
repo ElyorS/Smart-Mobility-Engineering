@@ -1,9 +1,15 @@
 Name: Elyor           Student ID: 12204556         SMS Midterm assignment
-                              
+
+                          
                               Dynamic Fleet Management with ROS2 (Python)
                       Project Overview
 In this assignment, I worked on implementing a dynamic fleet management system using ROS2 (Robot Operating System 2) in Python. The goal of the project was to efficiently allocate and route vehicles in a smart mobility service. I built both the Action Server and Action Client components and created a professional Command Line Interface (CLI) for interaction.
 
+        OUTPUT OF THE PROJECT
+
+<img width="1451" alt="Output of the project" src="https://github.com/ElyorS/Smart-Mobility-Engineering/assets/115398604/6936e2aa-0ad2-4f24-a8df-be0c3e206099">
+
+        
                        Table of Contents
 
 Project Overview
